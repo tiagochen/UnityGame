@@ -69,13 +69,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\src\NewBehaviourScript.cs" />
+    <Compile Include="Assets\src\IRoleControl.cs" />
     <Compile Include="Assets\src\PlayerControl.cs" />
+    <Compile Include="Assets\src\PlayerData.cs" />
+    <Compile Include="Assets\src\PlugTitleUI.cs" />
+    <Compile Include="Assets\src\RoleData.cs" />
     <Compile Include="Assets\src\SpiderControl.cs" />
+    <Compile Include="Assets\src\SpiderData.cs" />
     <Compile Include="Assets\src\ZombieControl.cs" />
+    <Compile Include="Assets\src\ZombieData.cs" />
     <Compile Include="Assets\src\core\CLog.cs" />
     <Compile Include="Assets\src\core\CoreUtil.cs" />
-    <Compile Include="Assets\src\core\move\CorePlugMove.cs" />
     <Compile Include="Assets\src\core\move\CorePlugMoveByDict.cs" />
     <Compile Include="Assets\src\core\move\CorePlugMoveByPos.cs" />
     <Compile Include="Assets\ui\plan\Water (Basic)\Scripts\WaterBasic.cs" />

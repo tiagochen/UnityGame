@@ -14,7 +14,14 @@ public class CLog
         StringBuilder sb = new StringBuilder();
         foreach (System.Object obj in argList)
         {
-            sb.Append(obj.ToString());
+            if (obj == null)
+            {
+                sb.Append("[null]");
+            }
+            else
+            {
+                sb.Append(obj.ToString());
+            }
             sb.Append("   ");
         }
         Debug.Log(sb.ToString());

@@ -14,9 +14,9 @@ public class CorePlugMoveByDict
     /// </summary>
     private static readonly Vector3 ZERO = Vector3.zero;
     /// <summary>
-    /// 移动速度
+    /// 移动速度, 旋转速度
     /// </summary>
-    public float moveSpeed;
+    public float moveSpeed, turnSpeed;
     /// <summary>
     /// 目标哦游戏对象
     /// </summary>
@@ -44,8 +44,8 @@ public class CorePlugMoveByDict
 
     
     /// <see cref="CorePlugMoveByDict"/>
-    /// <param name="owner">所属对象</param>
-    /// <param name="model">动画组件</param>
+    /// <param nick="owner">所属对象</param>
+    /// <param nick="model">动画组件</param>
     public CorePlugMoveByDict(MonoBehaviour owner, GameObject model)
     {
         this.owner = owner;
@@ -59,33 +59,41 @@ public class CorePlugMoveByDict
     /// <summary>
     /// 移动初始化
     /// </summary>
-    /// <param name="dict">目标位置</param>
-    /// <param name="moveTime">移动的限制时间</param>
+    /// <param nick="dict">目标位置</param>
+    /// <param nick="moveTime">移动的限制时间</param>
     public void MoveInit(Vector3 dict, float moveTime = float.NaN)
     {
         if (dict == ZERO)
             return;
+        timeLimit = moveTime;
         direction = owner.transform.TransformDirection(dict);
         step = direction * moveSpeed;
         animator.SetBool("Walk", true);
         model.transform.LookAt(owner.transform.position + step);
-        timeLimit = moveTime;
     }
 
     /// <summary>
-    /// 触发update，继续移动
+    /// 触发update
     /// </summary>
     public void OnUpdate()
+    {
+        DoMove();
+    }
+
+    /// <summary>
+    /// 处理移动行为
+    /// </summary>
+    private void DoMove()
     {
         if (direction == ZERO)
             return;
         float deltaTime = Time.deltaTime;
 
-        if(timeLimit != float.NaN)
+        if (timeLimit != float.NaN)
         {
             float temp = timeLimit - deltaTime;
 
-            if ( Mathf.Max(0, temp)  == 0 )
+            if (Mathf.Max(0, temp) == 0)
             {
                 deltaTime = timeLimit;
                 timeLimit = 0;
@@ -103,7 +111,6 @@ public class CorePlugMoveByDict
             MoveEnd();
         }
     }
-
 
     /// <summary>
     /// 移动结束

@@ -42,8 +42,8 @@ public class CorePlugMove
     /// <summary>
     /// 构造
     /// </summary>
-    /// <param name="owner">所属对象</param>
-    /// <param name="model">动画组件</param>
+    /// <param nick="owner">所属对象</param>
+    /// <param nick="model">动画组件</param>
     public CorePlugMove(MonoBehaviour owner, GameObject model = null)
     {
         this.owner = owner;
@@ -55,7 +55,7 @@ public class CorePlugMove
     /// <summary>
     /// 移动初始化
     /// </summary>
-    /// <param name="targetPos">目标位置</param>
+    /// <param nick="targetPos">目标位置</param>
     public void MoveInit( Vector3 targetPos )
     {
         this.targetPos = targetPos;
