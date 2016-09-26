@@ -8,6 +8,13 @@ using System.Text;
 /// </summary>
 public class CLog
 {
+    /// <summary>
+    /// L的别名，用A是因为代码提示可以在最前面
+    /// </summary>
+    public static void A(params System.Object[] argList)
+    {
+        L(argList);
+    }
 
     public static void L(params System.Object[] argList)
     {

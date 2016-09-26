@@ -66,7 +66,8 @@ public class CorePlugMoveByDict
         if (dict == ZERO)
             return;
         timeLimit = moveTime;
-        direction = owner.transform.TransformDirection(dict);
+        //direction = owner.transform.TransformDirection(dict);
+        direction = dict;
         step = direction * moveSpeed;
         animator.SetBool("Walk", true);
         model.transform.LookAt(owner.transform.position + step);
