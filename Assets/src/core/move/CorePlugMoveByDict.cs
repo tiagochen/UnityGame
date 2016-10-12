@@ -55,6 +55,22 @@ public class CorePlugMoveByDict
         direction = ZERO;
         timeLimit = float.NaN;
     }
+    
+    /// <summary>
+    /// 旋转角度（增量）
+    /// </summary>
+    public void turnAdd( float angle )
+    {
+        owner.transform.RotateAround(owner.transform.position, Vector3.up, angle);
+    }
+
+    /// <summary>
+    /// 转到固定角
+    /// </summary>
+    public void turnTo( float angle )
+    {
+
+    }
 
     /// <summary>
     /// 移动初始化
@@ -70,7 +86,7 @@ public class CorePlugMoveByDict
         direction = dict;
         step = direction * moveSpeed;
         animator.SetBool("Walk", true);
-        model.transform.LookAt(owner.transform.position + step);
+        //model.transform.LookAt(owner.transform.position + step);
     }
 
     /// <summary>
